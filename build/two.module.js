@@ -37,7 +37,7 @@ var root;
 if (typeof window !== 'undefined') {
   root = window;
 } else {
-  const { JSDOM } = jsdom;
+  const { JSDOM } = require('jsdom');
   const dom = new JSDOM();
   root = dom.window;
 }
@@ -2138,7 +2138,7 @@ var Constants = {
    * @name Two.PublishDate
    * @property {String} - The automatically generated publish date in the build process to verify version release candidates.
    */
-  PublishDate: '2021-02-16T09:45:10.897Z',
+  PublishDate: '2021-02-16T12:55:08.855Z',
 
   /**
    * @name Two.Identifier
