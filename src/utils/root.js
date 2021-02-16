@@ -3,7 +3,7 @@ var root;
 if (typeof window !== 'undefined') {
   root = window;
 } else {
-  const { JSDOM } = jsdom;
+  const { JSDOM } = require('jsdom');
   const dom = new JSDOM();
   root = dom.window
 }
