@@ -2144,7 +2144,7 @@ SOFTWARE.
      * @name Two.PublishDate
      * @property {String} - The automatically generated publish date in the build process to verify version release candidates.
      */
-    PublishDate: '2021-02-16T12:55:08.855Z',
+    PublishDate: '2021-02-16T13:20:29.175Z',
 
     /**
      * @name Two.Identifier
@@ -14864,6 +14864,7 @@ SOFTWARE.
   });
 
   // Utils
+  const { JSDOM } = require('jsdom');
 
   /**
    * @name Two
@@ -15676,8 +15677,8 @@ SOFTWARE.
   });
 
   function fitToWindow() {
-
-    var wr = document.body.getBoundingClientRect();
+    const dom = new JSDOM();
+    var wr = dom.window.document.body.getBoundingClientRect();
 
     var width = this.width = wr.width;
     var height = this.height = wr.height;
