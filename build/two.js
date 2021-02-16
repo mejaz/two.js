@@ -42,10 +42,10 @@ SOFTWARE.
   var root;
   if (typeof window !== 'undefined') {
     root = window;
-  } else if (typeof global !== 'undefined') {
-    root = global;
-  } else if (typeof self !== 'undefined') {
-    root = self;
+  } else {
+    const { JSDOM } = jsdom;
+    const dom = new JSDOM();
+    root = dom.window;
   }
 
   var root$1 = root;
@@ -2144,7 +2144,7 @@ SOFTWARE.
      * @name Two.PublishDate
      * @property {String} - The automatically generated publish date in the build process to verify version release candidates.
      */
-    PublishDate: '2021-02-14T17:00:16.871Z',
+    PublishDate: '2021-02-16T09:45:10.897Z',
 
     /**
      * @name Two.Identifier
@@ -2570,7 +2570,7 @@ SOFTWARE.
    */
   var getAnchorsFromArcData = function(center, xAxisRotation, rx, ry, ts, td, ccw) {
 
-    var matrix = new Matrix$1()
+    new Matrix$1()
       .translate(center.x, center.y)
       .rotate(xAxisRotation);
 
@@ -5455,7 +5455,7 @@ SOFTWARE.
 
         set: function(stops) {
 
-          var updateStops = this._renderer.flagStops;
+          this._renderer.flagStops;
           var bindStops = this._renderer.bindStops;
           var unbindStops = this._renderer.unbindStops;
 
@@ -6305,7 +6305,7 @@ SOFTWARE.
      */
     load: function(texture, callback) {
 
-      var src = texture.src;
+      texture.src;
       var image = texture.image;
       var tag = Texture.getTag(image);
 
@@ -7000,7 +7000,7 @@ SOFTWARE.
 
         set: function(vertices) {
 
-          var updateVertices = this._renderer.flagVertices;
+          this._renderer.flagVertices;
           var bindVertices = this._renderer.bindVertices;
           var unbindVertices = this._renderer.unbindVertices;
 
@@ -9648,6 +9648,7 @@ SOFTWARE.
 
   Text.MakeObservable(Text.prototype);
 
+  // https://github.com/jonobr1/two.js/issues/507#issuecomment-777159213
   var regex$1 = {
     path: /[+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]\d+)?/g
   };
@@ -10064,7 +10065,7 @@ SOFTWARE.
       }
 
       var svg = read.g.call(this, node);
-      var viewBox = node.getAttribute('viewBox');
+      node.getAttribute('viewBox');
 
       svg.defs = defs;  // Export out the <defs /> for later use
       // Utils.applySvgViewBox(svg, viewBox);
@@ -10590,8 +10591,8 @@ SOFTWARE.
         return read['rounded-rect'](node);
       }
 
-      var x = parseFloat(node.getAttribute('x')) || 0;
-      var y = parseFloat(node.getAttribute('y')) || 0;
+      parseFloat(node.getAttribute('x')) || 0;
+      parseFloat(node.getAttribute('y')) || 0;
       var width = parseFloat(node.getAttribute('width'));
       var height = parseFloat(node.getAttribute('height'));
 
@@ -10615,8 +10616,8 @@ SOFTWARE.
 
     'rounded-rect': function(node, parentStyles) {
 
-      var x = parseFloat(node.getAttribute('x')) || 0;
-      var y = parseFloat(node.getAttribute('y')) || 0;
+      parseFloat(node.getAttribute('x')) || 0;
+      parseFloat(node.getAttribute('y')) || 0;
       var rx = parseFloat(node.getAttribute('rx')) || 0;
       var ry = parseFloat(node.getAttribute('ry')) || 0;
 
@@ -10953,7 +10954,7 @@ SOFTWARE.
 
         set: function(textures) {
 
-          var updateTextures = this._renderer.flagTextures;
+          this._renderer.flagTextures;
           var bindTextures = this._renderer.bindTextures;
           var unbindTextures = this._renderer.unbindTextures;
 
@@ -14107,8 +14108,8 @@ SOFTWARE.
         var opacity = elem._renderer.opacity || elem._opacity;
         var dashes = elem.dashes;
         var decoration = elem._decoration;
-        var alignment = CanvasUtils.alignments[elem._alignment] || elem._alignment;
-        var baseline = elem._baseline;
+        CanvasUtils.alignments[elem._alignment] || elem._alignment;
+        elem._baseline;
 
         canvas.width = Math.max(Math.ceil(elem._renderer.rect.width * scale.x), 1);
         canvas.height = Math.max(Math.ceil(elem._renderer.rect.height * scale.y), 1);

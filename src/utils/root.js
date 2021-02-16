@@ -1,10 +1,11 @@
+
 var root;
 if (typeof window !== 'undefined') {
   root = window;
-} else if (typeof global !== 'undefined') {
-  root = global;
-} else if (typeof self !== 'undefined') {
-  root = self;
+} else {
+  const { JSDOM } = jsdom;
+  const dom = new JSDOM();
+  root = dom.window
 }
 
 export default root;
