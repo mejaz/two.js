@@ -12,6 +12,7 @@ import Commands from './utils/path-commands.js';
 import root from './utils/root.js';
 import _ from './utils/underscore.js';
 import xhr from './utils/xhr.js';
+const { JSDOM } = require('jsdom');
 
 // Core Classes
 
@@ -866,8 +867,8 @@ _.extend(Two.prototype, Events, {
 });
 
 function fitToWindow() {
-
-  var wr = document.body.getBoundingClientRect();
+  const dom = new JSDOM();
+  var wr = dom.window.document.body.getBoundingClientRect();
 
   var width = this.width = wr.width;
   var height = this.height = wr.height;

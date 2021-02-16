@@ -5,7 +5,7 @@ if (typeof window !== 'undefined') {
 } else {
   const { JSDOM } = require('jsdom');
   const dom = new JSDOM();
-  root = dom.window
+  root = dom.window;
 }
 
 export default root;
