@@ -12,6 +12,7 @@ import Registry from '../registry.js';
 import CanvasRenderer from '../renderers/canvas.js';
 
 import Constants from '../constants.js';
+const { JSDOM } = require('jsdom');
 
 var anchor;
 var regex = {
@@ -21,7 +22,8 @@ var regex = {
 };
 
 if (root.document) {
-  anchor = document.createElement('a');
+  const dom = new JSDOM();
+  anchor = dom.window.document.createElement('a');
 }
 
 /**
