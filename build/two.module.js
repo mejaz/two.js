@@ -2138,7 +2138,7 @@ var Constants = {
    * @name Two.PublishDate
    * @property {String} - The automatically generated publish date in the build process to verify version release candidates.
    */
-  PublishDate: '2021-02-16T13:28:06.075Z',
+  PublishDate: '2021-02-17T06:27:42.831Z',
 
   /**
    * @name Two.Identifier
@@ -9841,14 +9841,18 @@ var applySvgAttributes = function(node, elem, parentStyles) {
   styles.visible = !(typeof styles.display === 'undefined' && /none/i.test(styles.display))
     || (typeof styles.visibility === 'undefined' && /hidden/i.test(styles.visibility));
 
+  console.log('applySvgAttributes', applySvgAttributes);
   // Now iterate the whole thing
   for (key in styles) {
     value = styles[key];
+    console.log('--value--', value);
 
     switch (key) {
       case 'transform':
         // TODO: Check this out https://github.com/paperjs/paper.js/blob/develop/src/svg/SvgImport.js#L315
+        console.log('/none/i.test(value)', /none/i.test(value));
         if (/none/i.test(value)) break;
+        console.log('node vals --', node.transform, '--', node.transform.baseVal, '--', node.transform.baseVal.length);
         m = (node.transform && node.transform.baseVal && node.transform.baseVal.length > 0)
           ? node.transform.baseVal[0].matrix
           : (node.getCTM ? node.getCTM() : null);
