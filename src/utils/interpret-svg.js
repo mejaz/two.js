@@ -232,6 +232,7 @@ var applySvgAttributes = function(node, elem, parentStyles) {
         // TODO: Check this out https://github.com/paperjs/paper.js/blob/develop/src/svg/SvgImport.js#L315
         console.log('/none/i.test(value)', /none/i.test(value));
         if (/none/i.test(value)) break;
+        console.log('node', node);
         console.log('node vals --', node.transform, '--', node.transform.baseVal, '--', node.transform.baseVal.length);
         m = (node.transform && node.transform.baseVal && node.transform.baseVal.length > 0)
           ? node.transform.baseVal[0].matrix
