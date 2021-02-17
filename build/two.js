@@ -2144,7 +2144,7 @@ SOFTWARE.
      * @name Two.PublishDate
      * @property {String} - The automatically generated publish date in the build process to verify version release candidates.
      */
-    PublishDate: '2021-02-17T07:07:51.965Z',
+    PublishDate: '2021-02-17T07:51:45.049Z',
 
     /**
      * @name Two.Identifier
@@ -9858,13 +9858,13 @@ SOFTWARE.
           // TODO: Check this out https://github.com/paperjs/paper.js/blob/develop/src/svg/SvgImport.js#L315
           console.log('/none/i.test(value)', /none/i.test(value));
           if (/none/i.test(value)) break;
-          console.log('node', node);
-          console.log('node vals --', node.transform, '--', node.transform.baseVal, '--', node.transform.baseVal.length);
+          console.log('node', node.getCTM);
           m = (node.transform && node.transform.baseVal && node.transform.baseVal.length > 0)
             ? node.transform.baseVal[0].matrix
             : (node.getCTM ? node.getCTM() : null);
 
           // Might happen when transform string is empty or not valid.
+          console.log('--m--', m);
           if (m === null) break;
 
           if (Constants.AutoCalculateImportedMatrices) {
