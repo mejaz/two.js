@@ -2138,7 +2138,7 @@ var Constants = {
    * @name Two.PublishDate
    * @property {String} - The automatically generated publish date in the build process to verify version release candidates.
    */
-  PublishDate: '2021-02-17T06:27:42.831Z',
+  PublishDate: '2021-02-17T06:46:12.577Z',
 
   /**
    * @name Two.Identifier
@@ -10173,7 +10173,7 @@ var read = {
   },
 
   path: function(node, parentStyles) {
-
+    console.log('fetching paths');
     var path = node.getAttribute('d');
     var points = [];
     var closed = false, relative = false;
@@ -10181,7 +10181,7 @@ var read = {
     if (path) {
 
       // Create a Two.Path from the paths.
-
+      console.log('--inside path--');
       var coord = new Anchor();
       var control, coords;
       var commands = path.match(/[a-df-z][^a-df-z]*/ig);
@@ -10522,6 +10522,8 @@ var read = {
 
     }
 
+    console.log('outside path block');
+
     path = new Path(points, closed, undefined, true).noStroke();
     path.fill = 'black';
 
@@ -10538,6 +10540,7 @@ var read = {
       v.subSelf(rect.centroid);
     });
 
+    console.log('before apply svg attrs');
     applySvgAttributes.call(this, node, path, parentStyles);
 
     path.translation.addSelf(rect.centroid);
